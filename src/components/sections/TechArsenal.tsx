@@ -223,7 +223,6 @@ export default function TechArsenal() {
           "linear-gradient(180deg, #0a0a08 0%, #1a150f 50%, #0a0a08 100%)",
         transformOrigin: "center top",
         willChange: "transform, opacity",
-        transformStyle: "preserve-3d",
       }}
     >
       {/* Subtle grid */}

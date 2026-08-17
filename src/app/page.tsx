@@ -5,6 +5,7 @@ import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import Hero from "@/components/sections/Hero";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ProjectsShowcase from "@/components/sections/ProjectsShowcase";
+import LiveWorks from "@/components/sections/LiveWorks";
 import TechArsenal from "@/components/sections/TechArsenal";
 import ContactSection from "@/components/sections/ContactSection";
 import GrainOverlay from "@/components/GrainOverlay";
@@ -31,6 +32,7 @@ export default function Home() {
           <Hero preloaderDone={preloaderDone} />
           <ExperienceSection />
           <ProjectsShowcase />
+          <LiveWorks />
           <TechArsenal />
           <ContactSection />
         </main>

@@ -289,7 +289,6 @@ export default function ContactSection() {
           "linear-gradient(180deg, #0a0a08 0%, #16120e 50%, #080806 100%)",
         transformOrigin: "center top",
         willChange: "transform, opacity",
-        transformStyle: "preserve-3d",
       }}
     >
       {/* Ambient glows */}

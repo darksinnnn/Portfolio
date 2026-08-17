@@ -11,6 +11,19 @@ export interface ProjectData {
   accent: string;
 }
 
+export interface LiveWork {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  techStack: string[];
+  liveUrl: string;
+  githubUrl?: string;
+  accent: string;
+  accentBg: string; // subtle bg tint for the browser mockup
+  image: string; // path to real screenshot in public directory
+}
+
 export interface Experience {
   company: string;
   role: string;
@@ -46,21 +59,49 @@ export interface ProfileData {
 
 // ── Constants ───────────────────────────────────────────────────────────────
 
-export const PROJECTS: ProjectData[] = [
+export const LIVE_WORKS: LiveWork[] = [
   {
-    id: "gym-app",
+    id: "bajrang-fitness",
     title: "Bajrang Fitness Hub",
-    subtitle: "Gym Membership Management App",
+    subtitle: "Gym Membership Management System",
+    description:
+      "A live production app used by real trainers to track gym memberships, payments and member activity — deployed on Vercel.",
     techStack: ["Next.js", "React", "Vercel", "Full Stack"],
-    bullets: [
-      "Live production app for trainers to track gym memberships, payments, and member activity",
-      "Full-stack web application deployed on Vercel with real-time data management",
-      "Clean dashboard interface for membership tracking and renewal management",
-    ],
-    githubUrl: "https://github.com/darksinnnn/GymManagementApp",
     liveUrl: "https://bajrangfitnesshub.vercel.app/",
+    githubUrl: "https://github.com/darksinnnn/GymManagementApp",
     accent: "#ec4899",
+    accentBg: "rgba(236,72,153,0.05)",
+    image: "/live-works/bajrang-fitness.png",
   },
+  {
+    id: "hr-workflow",
+    title: "HR Workflow Designer",
+    subtitle: "Visual HR Process Automation Platform",
+    description:
+      "A premium SaaS-grade drag-and-drop workflow designer for HR admins. Build, configure and simulate onboarding, leave approval and document verification pipelines visually.",
+    techStack: ["React 19", "TypeScript", "Vite", "React Flow", "Zustand"],
+    liveUrl: "https://hr-automation-kappa.vercel.app",
+    githubUrl: "https://github.com/darksinnnn/HR-automation",
+    accent: "#6366f1",
+    accentBg: "rgba(99,102,241,0.05)",
+    image: "/live-works/hr-workflow.png",
+  },
+  {
+    id: "golf-heroes",
+    title: "Golf Heroes",
+    subtitle: "Play, Win & Give Back",
+    description:
+      "A full-stack golf community platform with Stableford score tracking, monthly prize draws, subscription billing via Stripe, and charitable contribution routing. Built on Next.js + Supabase.",
+    techStack: ["Next.js", "Supabase", "Stripe", "React", "Lenis"],
+    liveUrl: "https://golfclub-xi.vercel.app",
+    githubUrl: "https://github.com/darksinnnn/golfclub",
+    accent: "#22c55e",
+    accentBg: "rgba(34,197,94,0.05)",
+    image: "/live-works/golf-heroes.png",
+  },
+];
+
+export const PROJECTS: ProjectData[] = [
   {
     id: "paypipe",
     title: "PayPipe",
@@ -75,17 +116,16 @@ export const PROJECTS: ProjectData[] = [
     accent: "#3b82f6",
   },
   {
-    id: "inventag",
-    title: "InvenTag",
-    subtitle: "IoT-Based Inventory Tracking System",
-    techStack: ["C/C++", "ESP32", "IoT", "Kotlin", "Firebase"],
+    id: "legal-assistant",
+    title: "Legal Research Assistant",
+    subtitle: "AI-Powered Legal Analysis",
+    techStack: ["Python", "RAG", "LLMs", "NLP", "Vector Embeddings"],
     bullets: [
-      "Low-level firmware in C/C++ for ESP32 microcontrollers enabling continuous real-time data acquisition",
-      "Multi-threaded RESTful web server on the edge device processing concurrent requests with sub-second alerts",
-      "Synchronized live IoT hardware data with a custom Android app via Firebase over Wi-Fi",
+      "Intelligent legal assistant using Retrieval-Augmented Generation (RAG) to automate statute analysis and case law retrieval",
+      "Vector Embeddings and Semantic Search to query extensive legal databases, categorizing issues under relevant IPC sections",
+      "Synthesizes context-aware legal advice from complex texts, reducing manual research time significantly",
     ],
-    githubUrl: "https://github.com/darksinnnn/InvenTag.git",
-    accent: "#f97316",
+    accent: "#8b5cf6",
   },
   {
     id: "hashcracker",
@@ -101,18 +141,6 @@ export const PROJECTS: ProjectData[] = [
     accent: "#00ff41",
   },
   {
-    id: "legal-assistant",
-    title: "Legal Research Assistant",
-    subtitle: "AI-Powered Legal Analysis",
-    techStack: ["Python", "RAG", "LLMs", "NLP", "Vector Embeddings"],
-    bullets: [
-      "Intelligent legal assistant using Retrieval-Augmented Generation (RAG) to automate statute analysis and case law retrieval",
-      "Vector Embeddings and Semantic Search to query extensive legal databases, categorizing issues under relevant IPC sections",
-      "Synthesizes context-aware legal advice from complex texts, reducing manual research time significantly",
-    ],
-    accent: "#8b5cf6",
-  },
-  {
     id: "rate-limiter",
     title: "Smart API Rate Limiter",
     subtitle: "Production-Ready Rate Limiting Service",
@@ -124,6 +152,19 @@ export const PROJECTS: ProjectData[] = [
     ],
     githubUrl: "https://github.com/darksinnnn/API-rate-Limiter",
     accent: "#06b6d4",
+  },
+  {
+    id: "inventag",
+    title: "InvenTag",
+    subtitle: "IoT-Based Inventory Tracking System",
+    techStack: ["C/C++", "ESP32", "IoT", "Kotlin", "Firebase"],
+    bullets: [
+      "Low-level firmware in C/C++ for ESP32 microcontrollers enabling continuous real-time data acquisition",
+      "Multi-threaded RESTful web server on the edge device processing concurrent requests with sub-second alerts",
+      "Synchronized live IoT hardware data with a custom Android app via Firebase over Wi-Fi",
+    ],
+    githubUrl: "https://github.com/darksinnnn/InvenTag.git",
+    accent: "#f97316",
   },
 ];
 
@@ -164,12 +205,12 @@ export const PROFILE: ProfileData = {
     {
       company: "EaselearnAI",
       role: "Full Stack Developer Intern",
-      dates: "June 2025 – July 2025",
+      dates: "June 2025 – Feb 2026",
       accomplishments: [
-        "Engineered mobile app using React Native, launching Android version on Play Store",
-        "Architected the iOS counterpart using robust software engineering principles",
-        "Solved critical authentication failure with custom Google OAuth flow and secure cookie management",
-        "Integrated high-performance WebView architecture for the core dashboard",
+        "Engineered a React Native full-stack mobile app serving 10,000+ users; built responsive UI components and a high-performance WebView layer for cross-platform consistency",
+        "Implemented OAuth 2.0 authentication flows with secure session management, diagnosing and resolving critical authentication failures across frontend and backend layers",
+        "Built an automation service in Go to handle leave/attendance workflows via the Telegram Bot API, integrating backend logic with third-party messaging for real-time processing",
+        "Architected the iOS counterpart using robust software engineering principles, ensuring parity with the Android experience",
       ],
     },
   ],
